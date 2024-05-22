@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="sytle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <div class="form">
+            <input type="text" id="expense-name" placeholder="Expense Name">
+            <input type="number" id="expense-amount" placeholder="Amount">
+            <input type="date" id="expense-date">
+            <button id="add-expense-btn">Add Expense</button>
+        </div>
+        <div class="expenses-list">
+            <h2>Expenses</h2>
+            <select id="date-list" class="date-list">
+                <option value="" disabled selected>Select a date</option>
+            </select>
+            <ul id="expense-items"></ul>
+        </div>
+        <div class="summary">
+            <h2>Daily Total: €<span id="daily-total-amount">0.00</span></h2>
+            <h2>Monthly Total: €<span id="monthly-total-amount">0.00</span></h2>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
