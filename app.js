@@ -53,9 +53,17 @@ document.addEventListener('DOMContentLoaded', function() {
         dates.forEach(function(date) {
             var option = document.createElement('option');
             option.value = date;
-            option.textContent = date;
+            option.textContent = formatDate(date);
             dateList.appendChild(option);
         });
+    }
+
+    function formatDate(dateString) {
+        var date = new Date(dateString);
+        var day = String(date.getDate()).padStart(2, '0');
+        var month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        var year = date.getFullYear();
+        return `${year}-${month}-${day}`;
     }
 
     dateList.addEventListener('change', function(event) {
@@ -69,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var dateExpenses = groupExpensesByDate()[selectedDate] || [];
         dateExpenses.forEach(function(expense, index) {
             var li = document.createElement('li');
-            li.innerHTML = expense.name + ' - €' + expense.amount + ' <button data-index="' + index + '">Delete</button>';
+            li.innerHTML = `${expense.name} - €${expense.amount} <button data-index="${index}">Delete</button>`;
             expenseItems.appendChild(li);
         });
     }
@@ -88,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateMonthlyTotal();
             expenseNameInput.value = '';
             expenseAmountInput.value = '';
-            expenseDateInput.value = '';
+            expenseDateInput.value = formatDate(new Date()); // Reset date input to current date
         } else {
             alert('Please enter a valid name, amount, and date');
         }
@@ -114,4 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderDates();
     updateMonthlyTotal();
+
+    // Initialize date input to current date
+    expenseDateInput.value = formatDate(new Date());
 });

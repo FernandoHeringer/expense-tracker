@@ -119,7 +119,7 @@ h2 {
         width: 150px;
     }
 
-    .form input, .form button, .date-list {
+    .form input, .form button, .date-list, .expense-date {
         padding: 10px;
         font-size: 12px;
     }
