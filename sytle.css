@@ -119,9 +119,15 @@ h2 {
         width: 150px;
     }
 
-    .form input, .form button, .date-list, .expense-date {
+    .form input, .form button, .date-list {
         padding: 10px;
         font-size: 12px;
+    }
+
+    .expense-date{
+        padding: 10px;
+        font-size: 12px;
+
     }
 
     .summary {
